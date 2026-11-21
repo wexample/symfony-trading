@@ -34,7 +34,7 @@ final readonly class TrialMarketChartProvider implements MarketChartProviderInte
 }
 ```
 
-`GET /_api/candle/list?chart=trial-market&scope=<id>`, `/_api/trade-marker/list` and `/_api/time-series-point/list` then answer with the standard entity collection. An unknown chart name is a 404. The query holds `chart`, `scope` — what the chart is about, by its id, which the provider checks as it checks any access — and `from` / `to` (ISO dates, `to` excluded) for a provider that serves a period.
+`GET /_api/candle/list?chart=trial-market&scope=<id>`, `/_api/trade-marker/list` and `/_api/time-series-point/list` then answer with the standard entity collection. An unknown chart name is a 404. The query holds `chart`, `scope` — what the chart is about, by its id, which the provider checks as it checks any access —, `timeframe` — the width of the candles, for a chart offering several — and `from` / `to` (ISO dates, `to` excluded) for a provider that serves a period.
 
 ## Many bars
 

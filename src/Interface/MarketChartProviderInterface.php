@@ -15,7 +15,8 @@ use Wexample\SymfonyTrading\Entity\TradeMarker;
  * its two siblings `trade-marker` and `time-series-point`, to answer.
  *
  * The request carries `scope` — what the chart is about, by its id: a
- * backtest, a market —, and `from` / `to` when the chart asks for a period.
+ * backtest, a market —, `timeframe` when the chart lets one choose the width
+ * of its candles, and `from` / `to` when it asks for a period.
  * The provider checks the scope as it checks any access, and ignores what
  * it has no use for. `AbstractMarketChartProvider` answers no marker and no
  * series, for a chart of candles alone.

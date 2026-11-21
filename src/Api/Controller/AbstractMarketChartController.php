@@ -12,8 +12,9 @@ use Wexample\SymfonyTrading\Service\MarketChartProviderRegistry;
  * A layer of a market chart — its candles, its trade markers, its series —,
  * as the `list` of the entity it is made of, which the generated repository
  * calls without being told where it is. Which chart is the `chart` option;
- * `scope` what it is about, by its id; `from` and `to` (ISO dates, `to`
- * excluded) a period. The provider reads them from the request, checks the
+ * `scope` what it is about, by its id; `timeframe` the width of its candles
+ * (`1h`, `1d`), for a chart that offers several; `from` and `to` (ISO dates,
+ * `to` excluded) a period. The provider reads them from the request, checks the
  * scope as it checks any access, and ignores what it has no use for.
  */
 abstract class AbstractMarketChartController extends AbstractApiController
@@ -23,6 +24,8 @@ abstract class AbstractMarketChartController extends AbstractApiController
     final public const string QUERY_OPTION_CHART = 'chart';
 
     final public const string QUERY_OPTION_SCOPE = 'scope';
+
+    final public const string QUERY_OPTION_TIMEFRAME = 'timeframe';
 
     final public const string QUERY_OPTION_FROM = 'from';
 

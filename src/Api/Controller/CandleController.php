@@ -19,6 +19,7 @@ class CandleController extends AbstractMarketChartController
     #[Route(path: 'list', name: self::ROUTE_LIST, methods: AbstractController::ROUTE_OPTIONS_METHOD_ONLY_GET, options: AbstractController::ROUTE_OPTIONS_ONLY_EXPOSE)]
     #[StringQueryOption(key: self::QUERY_OPTION_CHART, default: '')]
     #[StringQueryOption(key: self::QUERY_OPTION_SCOPE, default: '')]
+    #[StringQueryOption(key: self::QUERY_OPTION_TIMEFRAME, default: '')]
     #[StringQueryOption(key: self::QUERY_OPTION_FROM, default: '')]
     #[StringQueryOption(key: self::QUERY_OPTION_TO, default: '')]
     public function list(
