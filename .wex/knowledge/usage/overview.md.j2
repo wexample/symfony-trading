@@ -40,6 +40,10 @@ final readonly class TrialMarketChartProvider implements MarketChartProviderInte
 
 A chart draws a few thousand candles well; a span of 1 h bars over years is ten times that. `CandleHelper::aggregate($candles, $max)` merges consecutive candles into at most `$max`, as a wider timeframe would show them. Markers and series points must then stand on a candle drawn: `CandleHelper::candleTimeOf($times, $time)` gives the time of the candle a moment falls in.
 
+## How sure a Sharpe is
+
+Picked as the best among many, a Sharpe ratio reads higher than its strategy deserves: chance alone gives the best of a hundred trials a fine one. `SharpeHelper::deflated($sharpe, $count, $skewness, $kurtosis, $sharpes)` gives the probability, 0 to 1, that the true Sharpe exceeds what chance would give the best of `$sharpes`, the trials it was picked among, itself included (Bailey & López de Prado, 2014). The ratios are per bar, not annualized; `$count` is how many returns measured it, `$skewness` and `$kurtosis` (3 for a normal law) how far they stray from one. `SharpeHelper::probabilistic()` measures against a benchmark given, `expectedMaximum()` gives that benchmark, `normalCdf()` and `normalQuantile()` the normal law both ways.
+
 ## Front artifacts
 
 `assets/Entity/*.ts`, `assets/Repository/*.ts` and `assets/Common/generated*.ts` are generated, never edited: after a change to an entity, regenerate them from an app as `symfony-api`'s `usage/entity-export-pipeline` says, pointing the paths at this package, and delete the foreign `.yml` the pseudocode command adds before the json export. An app adds `generatedRepositories` and `generatedEntitySchemas` to its api client.
