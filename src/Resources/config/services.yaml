@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Wexample\SymfonyTrading\Api\Controller\:
+        resource: '../../Api/Controller/*'
+        exclude: '../../Api/Controller/Abstract*'
+        tags: ['controller.service_arguments']
+
+    Wexample\SymfonyTrading\Api\Normalizer\:
+        resource: '../../Api/Normalizer/*'
+
+    Wexample\SymfonyTrading\Service\:
+        resource: '../../Service/*'
+
+    Wexample\SymfonyTrading\Service\MarketChartProviderRegistry:
+        arguments:
+            $providers: !tagged_locator { tag: wexample_symfony_trading.market_chart_provider, default_index_method: getChartName }

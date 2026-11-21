@@ -1,0 +1,249 @@
+{
+    "name": "time_series_point",
+    "type": "class",
+    "description": "One value of a series drawn along a market's candles: an equity, a moving\naverage. `pane` says where: 0 over the candles, on the price scale — an\nindicator —, 1 and beyond in a pane of its own beneath them — an equity,\nwhich is not a price.\nAn entity without an ORM mapping, as `Candle`: computed when asked for.",
+    "properties": [
+        {
+            "name": "id",
+            "type": "Symfony\\Component\\Uid\\Uuid"
+        },
+        {
+            "name": "chart",
+            "type": "string"
+        },
+        {
+            "name": "series",
+            "type": "string"
+        },
+        {
+            "name": "seriesLabel",
+            "type": "string",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "time",
+            "type": "int"
+        },
+        {
+            "name": "value",
+            "type": "float",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "pane",
+            "type": "int",
+            "default": 0
+        },
+        {
+            "name": "color",
+            "type": "string",
+            "nullable": true,
+            "default": null
+        }
+    ],
+    "methods": [
+        {
+            "type": "method",
+            "name": "buildEntityPath",
+            "parameters": [
+                {
+                    "type": "string",
+                    "name": "className"
+                }
+            ],
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getEntityKeyName",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getEntityShortName",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getId",
+            "return": {
+                "type": "Symfony\\Component\\Uid\\Uuid"
+            }
+        },
+        {
+            "type": "method",
+            "name": "setId",
+            "parameters": [
+                {
+                    "type": "Symfony\\Component\\Uid\\Uuid",
+                    "name": "id"
+                }
+            ],
+            "return": {
+                "type": "void"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getTableizedName",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getCamelName",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "__construct",
+            "parameters": [
+                {
+                    "type": "string",
+                    "name": "chart"
+                },
+                {
+                    "type": "string",
+                    "name": "series"
+                },
+                {
+                    "type": "int",
+                    "name": "time"
+                }
+            ]
+        },
+        {
+            "type": "method",
+            "name": "idFor",
+            "parameters": [
+                {
+                    "type": "string",
+                    "name": "chart"
+                },
+                {
+                    "type": "string",
+                    "name": "series"
+                },
+                {
+                    "type": "int",
+                    "name": "time"
+                }
+            ],
+            "return": {
+                "type": "Uuid"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getChart",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getSeries",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getSeriesLabel",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "setSeriesLabel",
+            "parameters": [
+                {
+                    "type": "string",
+                    "name": "seriesLabel"
+                }
+            ],
+            "return": {
+                "type": "self"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getTime",
+            "return": {
+                "type": "int"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getValue",
+            "return": {
+                "type": "float"
+            }
+        },
+        {
+            "type": "method",
+            "name": "setValue",
+            "parameters": [
+                {
+                    "type": "float",
+                    "name": "value"
+                }
+            ],
+            "return": {
+                "type": "self"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getPane",
+            "return": {
+                "type": "int"
+            }
+        },
+        {
+            "type": "method",
+            "name": "setPane",
+            "parameters": [
+                {
+                    "type": "int",
+                    "name": "pane"
+                }
+            ],
+            "return": {
+                "type": "self"
+            }
+        },
+        {
+            "type": "method",
+            "name": "getColor",
+            "return": {
+                "type": "string"
+            }
+        },
+        {
+            "type": "method",
+            "name": "setColor",
+            "parameters": [
+                {
+                    "type": "string",
+                    "name": "color"
+                }
+            ],
+            "return": {
+                "type": "self"
+            }
+        }
+    ]
+}

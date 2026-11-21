@@ -1,0 +1,120 @@
+items:
+  - name: TradeMarker
+    type: class
+    description: "An order filled, marked on the candle it filled on: a buy below it, a sell\nabove it. The one closing a trade says what the trade made (`pnl`), which\ncolours it — a gain or a loss.\nAn entity without an ORM mapping, as `Candle`: computed when asked for."
+    properties:
+      - name: id
+        type: Symfony\Component\Uid\Uuid
+      - name: chart
+        type: string
+      - name: time
+        type: int
+      - name: side
+        type: string
+      - name: price
+        type: float
+      - name: pnl
+        type: float
+        nullable: true
+        default: null
+      - name: label
+        type: string
+        nullable: true
+        default: null
+    methods:
+      - type: method
+        name: buildEntityPath
+        parameters:
+          - type: string
+            name: className
+        return:
+          type: string
+      - type: method
+        name: getEntityKeyName
+        return:
+          type: string
+      - type: method
+        name: getEntityShortName
+        return:
+          type: string
+      - type: method
+        name: getId
+        return:
+          type: Symfony\Component\Uid\Uuid
+      - type: method
+        name: setId
+        parameters:
+          - type: Symfony\Component\Uid\Uuid
+            name: id
+        return:
+          type: void
+      - type: method
+        name: getTableizedName
+        return:
+          type: string
+      - type: method
+        name: getCamelName
+        return:
+          type: string
+      - type: method
+        name: __construct
+        parameters:
+          - type: string
+            name: chart
+          - type: int
+            name: time
+          - type: TradeSide
+            name: side
+          - type: float
+            name: price
+      - type: method
+        name: idFor
+        parameters:
+          - type: string
+            name: chart
+          - type: int
+            name: time
+          - type: TradeSide
+            name: side
+          - type: float
+            name: price
+        return:
+          type: Uuid
+      - type: method
+        name: getChart
+        return:
+          type: string
+      - type: method
+        name: getTime
+        return:
+          type: int
+      - type: method
+        name: getSide
+        return:
+          type: string
+      - type: method
+        name: getPrice
+        return:
+          type: float
+      - type: method
+        name: getPnl
+        return:
+          type: float
+      - type: method
+        name: setPnl
+        parameters:
+          - type: float
+            name: pnl
+        return:
+          type: self
+      - type: method
+        name: getLabel
+        return:
+          type: string
+      - type: method
+        name: setLabel
+        parameters:
+          - type: string
+            name: label
+        return:
+          type: self
