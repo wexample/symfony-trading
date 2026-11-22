@@ -1,7 +1,7 @@
 {
   "name": "wexample/symfony-trading",
   "description": "Trading for Symfony: candles, trade markers and time series as entities, served by list endpoints",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "library",
   "license": "MIT",
   "autoload": {
